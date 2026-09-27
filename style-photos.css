@@ -1,0 +1,27 @@
+/* Дополнение к style.css: аккуратная обрезка вертикальных фото в карточках */
+.card__pic { padding: 0; overflow: hidden; }
+.card__pic img { height: 240px; object-position: center; transition: transform 0.4s ease; }
+.card:hover .card__pic img { transform: scale(1.04); }
+
+/* Бенто: на фото коллаж, показываем один торт крупно */
+.card__pic img[src$="bento.jpg"] { object-position: 82% 22%; }
+.card__pic img[src$="roll-biscuit.jpg"] { object-position: 40% 55%; }
+.card__pic img[src$="roll-meringue.jpg"] { object-position: 40% 35%; }
+.card__pic img[src$="korp-coffee.jpg"] { object-position: 40% 25%; }
+
+.hero__img {
+  display: block;
+  width: 180px;
+  height: 180px;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 50% 60%;
+  border: 6px solid #fff;
+  box-shadow: 0 10px 30px rgba(74, 44, 42, 0.18);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card__pic img { transition: none; }
+  .card:hover .card__pic img { transform: none; }
+}

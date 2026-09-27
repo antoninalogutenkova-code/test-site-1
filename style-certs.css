@@ -1,0 +1,4 @@
+/* Сертификаты: показываем целиком, без обрезки */
+.gallery--certs { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+.gallery--certs img { aspect-ratio: 4 / 3; object-fit: contain; background: #fff; }
+.gallery--certs .cap { white-space: normal; }

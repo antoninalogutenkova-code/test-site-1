@@ -1,0 +1,22 @@
+/* Версия 8: поверх style-v7.css и style-ring.css. Кольцо в шапке, шапка и заголовки по центру. */
+:root { --choco-soft: var(--muted); }
+
+.hero { grid-template-columns: 1fr; max-width: 900px; padding: 32px 20px 48px; gap: 0; text-align: center; }
+.hero__text { display: flex; flex-direction: column; align-items: center; }
+.hero__lead { margin-left: auto; margin-right: auto; }
+.hero__maker { text-align: left; }
+.hero__actions { justify-content: center; }
+
+.ring { margin: 8px auto 4px; }
+.ring__hint { margin: 0 0 8px; }
+
+.section > h2, .section-hint { text-align: center; }
+.section-hint { margin-left: auto; margin-right: auto; }
+.section > .muted, .section > .note { margin-left: auto; margin-right: auto; text-align: center; }
+.steps { margin-left: auto; margin-right: auto; }
+.actions { justify-content: center; }
+.section > p:not(.section-hint):not(.muted):not(.note) { text-align: center; }
+.about__text p { text-align: left; }
+.about__text .actions { justify-content: flex-start; }
+.form, .call-note, .result { margin-left: auto; margin-right: auto; }
+.total { text-align: center; }

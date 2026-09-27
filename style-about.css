@@ -1,0 +1,19 @@
+/* Блок «О нас»: портрет и текст */
+.about { display: grid; gap: 20px; align-items: center; }
+.about__photo {
+  width: 180px;
+  height: 180px;
+  margin: 0 auto;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 50% 22%;
+  border: 5px solid #fff;
+  box-shadow: 0 8px 24px rgba(74, 44, 42, 0.18);
+}
+.about__text p { margin: 0 0 14px; }
+.about__name { font-weight: 700; }
+
+@media (min-width: 720px) {
+  .about { grid-template-columns: 220px 1fr; gap: 32px; }
+  .about__photo { width: 220px; height: 220px; }
+}

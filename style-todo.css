@@ -1,0 +1,28 @@
+/* Жёлтые пометки «здесь нужно внести данные» */
+.todo {
+  display: block;
+  margin: 10px 0;
+  padding: 8px 12px;
+  background: #fff3b0;
+  border: 2px dashed #d9a400;
+  border-radius: 10px;
+  color: #5a4300;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+.todo::before { content: "✎ Заполнить: "; font-weight: 800; }
+.todo--card { margin: 4px 0 0; font-size: 13px; }
+.todo--inline { display: inline-block; }
+
+.todo-legend {
+  position: relative;
+  z-index: 30;
+  padding: 10px 16px;
+  background: #ffe066;
+  color: #4d3a00;
+  font-size: 14px;
+  text-align: center;
+  border-bottom: 2px dashed #d9a400;
+}
+.todo-legend strong { font-weight: 800; }

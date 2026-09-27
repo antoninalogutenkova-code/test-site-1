@@ -1,0 +1,4 @@
+/* Галерея: чтобы широкое фото с тортом кадрировалось по торту, а не по краю */
+.gallery img[src$="gallery-rose-cake.jpg"] { object-position: 62% 50%; }
+.gallery img[src$="gallery-berry-dessert.jpg"] { object-position: 50% 35%; }
+.gallery img[src$="gallery-cupcakes.jpg"] { object-position: 50% 30%; }

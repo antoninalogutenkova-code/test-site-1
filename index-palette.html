@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Сладости для радости - домашняя кондитерская</title>
+    <meta name="description" content="Домашняя кондитерская «Сладости для радости»: корпусные пирожные, бенто-торты, рулеты. Заказы принимаются на 1 ноября 2026 года." />
+    <meta property="og:title" content="Сладости для радости" />
+    <meta property="og:description" content="Домашние десерты на заказ: пирожные, бенто-торты и рулеты." />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#cdbff2" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style-palette.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <p class="hero__brand">Сладости для радости</p>
+      <h1>Домашние десерты, которые дарят радость</h1>
+      <p class="hero__lead">Пирожные, бенто-торты и рулеты на заказ. Выберите сладости и отправьте заказ нам во ВКонтакте.</p>
+      <p class="badge" id="orderDateBadge"></p>
+      <a class="btn btn--primary" href="#catalog">Выбрать сладости</a>
+    </header>
+
+    <main>
+      <section id="catalog" class="section" aria-labelledby="catalogTitle">
+        <h2 id="catalogTitle">Каталог</h2>
+        <ul class="grid" id="catalogList"></ul>
+      </section>
+
+      <section id="order" class="section section--tint" aria-labelledby="orderTitle">
+        <h2 id="orderTitle">Ваш заказ</h2>
+        <p class="muted" id="emptyCart">Пока пусто. Добавьте что-нибудь вкусное из каталога.</p>
+        <div id="cartBox" hidden>
+          <ul class="cart" id="cartList"></ul>
+          <p class="total">Итого: <strong id="totalSum">0 ₽</strong></p>
+
+          <form id="orderForm" class="form" novalidate>
+            <label>Ваше имя
+              <input name="name" autocomplete="name" required />
+            </label>
+            <label>Телефон
+              <input name="phone" type="tel" autocomplete="tel" required />
+            </label>
+            <label>Комментарий (пожелания, надпись, время)
+              <textarea name="comment" rows="3"></textarea>
+            </label>
+            <p class="form__error" id="formError" role="alert" hidden></p>
+            <button class="btn btn--primary" type="submit">Скопировать заказ и открыть чат ВК</button>
+          </form>
+
+          <div class="result" id="result" hidden>
+            <p><strong>Заказ скопирован.</strong> В открывшемся чате вставьте текст в сообщение (Ctrl+V или долгое нажатие «Вставить») и отправьте.</p>
+            <label>Текст заказа
+              <textarea id="orderText" rows="8" readonly></textarea>
+            </label>
+            <a class="btn btn--ghost" id="openChat" href="#" target="_blank" rel="noopener">Открыть чат ВКонтакте</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="howTitle">
+        <h2 id="howTitle">Как заказать</h2>
+        <ol class="steps">
+          <li><span>1</span> Выберите сладости в каталоге и укажите количество.</li>
+          <li><span>2</span> Оставьте имя и телефон, нажмите «Скопировать заказ».</li>
+          <li><span>3</span> Отправьте текст заказа нам в сообщения сообщества ВКонтакте.</li>
+          <li><span>4</span> Мы подтвердим заказ и договоримся о деталях.</li>
+        </ol>
+        <p class="note" id="orderDateNote"></p>
+        <p class="muted">Доставку и самовывоз обсудим в сообщениях.</p>
+      </section>
+
+      <section class="section section--tint" aria-labelledby="aboutTitle">
+        <h2 id="aboutTitle">О нас</h2>
+        <p>«Сладости для радости» - домашняя кондитерская. Мы делаем десерты на заказ: от небольших корпусных пирожных до бенто-тортов и рулетов.</p>
+      </section>
+
+      <section class="section" aria-labelledby="contactsTitle">
+        <h2 id="contactsTitle">Контакты</h2>
+        <p>Самый быстрый способ связаться - написать нам во ВКонтакте.</p>
+        <p class="actions">
+          <a class="btn btn--primary" id="vkWrite" href="#" target="_blank" rel="noopener">Написать во ВКонтакте</a>
+          <a class="btn btn--ghost" id="vkGroup" href="#" target="_blank" rel="noopener">Наше сообщество</a>
+        </p>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© <span id="year"></span> Сладости для радости</p>
+    </footer>
+
+    <script src="catalog.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
