@@ -1,0 +1,18 @@
+/* Правки: подпись сертификата под картинкой, заметная кнопка звонка */
+.gallery--certs .cap {
+  position: static;
+  display: block;
+  padding: 10px 12px 12px;
+  color: var(--choco);
+  background: #fff;
+  font-size: 15px;
+  line-height: 1.35;
+}
+.gallery--certs button { cursor: zoom-in; }
+
+.call-fab {
+  background: #fff;
+  color: var(--pink-deep);
+  border: 3px solid var(--pink-deep);
+}
+.call-fab:hover { background: #ffe1e7; }

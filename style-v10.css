@@ -1,0 +1,26 @@
+/* Версия 10: добавка поверх style-v9.css. Кнопка "В заказ" в каталоге сама привлекает взгляд. */
+
+.card__actions .btn--primary {
+  animation: addWiggle 4.5s ease-in-out infinite;
+  animation-delay: calc(var(--wiggle-i, 0) * 0.35s);
+  transform-origin: center;
+}
+
+.grid > .card:nth-child(1) .card__actions .btn--primary { --wiggle-i: 0; }
+.grid > .card:nth-child(2) .card__actions .btn--primary { --wiggle-i: 1; }
+.grid > .card:nth-child(3) .card__actions .btn--primary { --wiggle-i: 2; }
+.grid > .card:nth-child(4) .card__actions .btn--primary { --wiggle-i: 3; }
+.grid > .card:nth-child(5) .card__actions .btn--primary { --wiggle-i: 4; }
+.grid > .card:nth-child(6) .card__actions .btn--primary { --wiggle-i: 5; }
+.grid > .card:nth-child(n+7) .card__actions .btn--primary { --wiggle-i: 0; }
+
+@keyframes addWiggle {
+  0%, 88%, 100% { transform: rotate(0deg) scale(1); background: var(--berry); }
+  91% { transform: rotate(-5deg) scale(1.06); }
+  94% { transform: rotate(5deg) scale(1.06); background: var(--berry-dark); }
+  97% { transform: rotate(-2deg) scale(1.02); background: var(--berry); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card__actions .btn--primary { animation: none; }
+}

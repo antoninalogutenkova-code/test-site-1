@@ -1,0 +1,34 @@
+/* Версия 11: добавка поверх style-v10.css. Раздел "Наши работы" - фото по очереди выплывают вперёд и возвращаются. */
+
+#galleryList > li {
+  position: relative;
+  animation: galleryShowcase 12s ease-in-out infinite;
+}
+#galleryList > li:hover,
+#galleryList > li:focus-within {
+  animation-play-state: paused;
+}
+
+#galleryList > li:nth-child(1) { animation-delay: 0s; }
+#galleryList > li:nth-child(2) { animation-delay: 2.4s; }
+#galleryList > li:nth-child(3) { animation-delay: 4.8s; }
+#galleryList > li:nth-child(4) { animation-delay: 7.2s; }
+#galleryList > li:nth-child(5) { animation-delay: 9.6s; }
+#galleryList > li:nth-child(n+6) { animation-delay: 0s; }
+
+@keyframes galleryShowcase {
+  0%, 78%, 100% {
+    transform: scale(1) translateY(0);
+    box-shadow: none;
+    z-index: 1;
+  }
+  88% {
+    transform: scale(1.15) translateY(-10px);
+    box-shadow: 0 22px 40px rgba(42, 22, 32, 0.35);
+    z-index: 5;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #galleryList > li { animation: none; }
+}

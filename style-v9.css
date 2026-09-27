@@ -1,0 +1,51 @@
+/* Версия 9: добавка поверх style-v7/v8. Свечение у кнопок и волна-разделитель между блоками. */
+
+/* Свечение кнопок: тёплый малиновый отблеск, как глазурь на свету */
+.btn--primary {
+  box-shadow: 0 4px 18px -4px rgba(161, 20, 63, 0.55), 0 0 16px rgba(161, 20, 63, 0.28);
+}
+.btn--primary:hover, .btn--primary:focus-visible {
+  box-shadow: 0 6px 24px -2px rgba(161, 20, 63, 0.65), 0 0 28px rgba(161, 20, 63, 0.45);
+}
+.btn--call {
+  box-shadow: 0 0 14px rgba(161, 20, 63, 0.22);
+}
+.btn--call:hover, .btn--call:focus-visible {
+  box-shadow: 0 0 22px rgba(161, 20, 63, 0.4);
+}
+
+/* Главная кнопка на первом экране - единственная, что мягко дышит светом */
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 4px 18px -4px rgba(161, 20, 63, 0.55), 0 0 16px rgba(161, 20, 63, 0.28); }
+  50% { box-shadow: 0 4px 22px -2px rgba(161, 20, 63, 0.7), 0 0 32px rgba(161, 20, 63, 0.52); }
+}
+.hero__actions .btn--primary {
+  animation: glowPulse 2.6s ease-in-out infinite;
+}
+
+/* Волна-разделитель: граница блоков как след глазури.
+   --enter: переход фарфор -> фисташка (перед тонированным блоком)
+   --exit: переход фисташка -> фарфор (после тонированного блока) */
+.wave-divider {
+  height: 40px;
+  margin: 0;
+  background-repeat: repeat-x, repeat-x;
+  background-size: 240px 40px, 240px 40px;
+  background-position: 0 0, 0 0;
+}
+.wave-divider--enter {
+  background-color: var(--porcelain);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 40' preserveAspectRatio='none'%3E%3Cpath d='M0 20 C20 6 40 6 60 20 C80 34 100 34 120 20 C140 6 160 6 180 20 C200 34 220 34 240 20' fill='none' stroke='%23a1143f' stroke-width='3' stroke-linecap='round' opacity='0.5'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 40' preserveAspectRatio='none'%3E%3Cpath d='M0 20 C20 6 40 6 60 20 C80 34 100 34 120 20 C140 6 160 6 180 20 C200 34 220 34 240 20 L240 40 L0 40 Z' fill='%23e3ebd6'/%3E%3C/svg%3E");
+}
+.wave-divider--exit {
+  background-color: var(--pistachio);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 40' preserveAspectRatio='none'%3E%3Cpath d='M0 20 C20 6 40 6 60 20 C80 34 100 34 120 20 C140 6 160 6 180 20 C200 34 220 34 240 20' fill='none' stroke='%23a1143f' stroke-width='3' stroke-linecap='round' opacity='0.5'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 40' preserveAspectRatio='none'%3E%3Cpath d='M0 20 C20 6 40 6 60 20 C80 34 100 34 120 20 C140 6 160 6 180 20 C200 34 220 34 240 20 L240 40 L0 40 Z' fill='%23f7f3f4'/%3E%3C/svg%3E");
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__actions .btn--primary { animation: none; }
+}

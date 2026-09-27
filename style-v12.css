@@ -1,0 +1,14 @@
+/* Версия 12: добавка поверх style-v11.css. Фото в "Наши работы" выплывают крупнее. */
+
+@keyframes galleryShowcase {
+  0%, 78%, 100% {
+    transform: scale(1) translateY(0);
+    box-shadow: none;
+    z-index: 1;
+  }
+  88% {
+    transform: scale(1.34) translateY(-16px);
+    box-shadow: 0 28px 50px rgba(42, 22, 32, 0.4);
+    z-index: 5;
+  }
+}

@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Сладости для радости - домашняя кондитерская</title>
+    <meta name="description" content="Домашняя кондитерская «Сладости для радости»: корпусные пирожные, бенто-торты, рулеты. Заказы принимаются на 1 ноября 2026 года." />
+    <meta property="og:title" content="Сладости для радости" />
+    <meta property="og:description" content="Домашние десерты на заказ: пирожные, бенто-торты, рулеты." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="images/korp-apple.jpg" />
+    <meta name="theme-color" content="#f4b6c2" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style-photos.css" />
+    <link rel="stylesheet" href="style-live.css" />
+    <link rel="stylesheet" href="style-extras.css" />
+    <link rel="stylesheet" href="style-v2.css" />
+    <link rel="stylesheet" href="style-certs.css" />
+    <link rel="stylesheet" href="style-fix.css" />
+    <link rel="stylesheet" href="style-about.css" />
+    <link rel="stylesheet" href="style-gallery.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <span class="blob blob--1" aria-hidden="true"></span>
+      <span class="blob blob--2" aria-hidden="true"></span>
+      <span class="blob blob--3" aria-hidden="true"></span>
+      <img class="hero__img" src="images/korp-cherry.jpg" alt="Корпусные пирожные-вишенки" />
+      <p class="hero__brand">Сладости для радости</p>
+      <h1>Домашние десерты, которые дарят радость</h1>
+      <p class="hero__lead">Пирожные, бенто-торты и рулеты на заказ. Выберите сладости и отправьте заказ нам во ВКонтакте или позвоните.</p>
+      <p class="trust">Платить на сайте ничего не нужно: заказ - это сообщение нам.</p>
+      <p class="badge" id="orderDateBadge"></p>
+      <p class="countdown" id="countdown">До 1 ноября: <strong id="countdownNum">0</strong> <span id="countdownWord">дней</span></p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#catalog">Выбрать сладости</a>
+        <a class="btn btn--call" id="callHero" href="#" hidden>📞 Позвонить</a>
+      </div>
+    </header>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Корпусные пирожные</span><span>✦</span><span>Бенто-торты</span><span>✦</span><span>Рулеты</span><span>✦</span><span>Домашняя кондитерская</span><span>✦</span>
+        <span>Корпусные пирожные</span><span>✦</span><span>Бенто-торты</span><span>✦</span><span>Рулеты</span><span>✦</span><span>Домашняя кондитерская</span><span>✦</span>
+      </div>
+    </div>
+
+    <main>
+      <section id="catalog" class="section" aria-labelledby="catalogTitle">
+        <h2 id="catalogTitle">Каталог</h2>
+        <p class="section-hint">Состав, вес и аллергены уточняйте при заказе: напишите в комментарии или позвоните.</p>
+        <ul class="grid" id="catalogList"></ul>
+      </section>
+
+      <section id="gallery" class="section section--tint" aria-labelledby="galleryTitle" hidden>
+        <h2 id="galleryTitle">Наши работы</h2>
+        <ul class="gallery" id="galleryList"></ul>
+      </section>
+
+      <section id="certs" class="section" aria-labelledby="certsTitle" hidden>
+        <h2 id="certsTitle">Дипломы и сертификаты</h2>
+        <p class="section-hint">Я постоянно учусь: сертификаты онлайн-курсов и мастер-классов по десертам. Нажмите на картинку, чтобы увеличить.</p>
+        <ul class="gallery gallery--certs" id="certsList"></ul>
+      </section>
+
+      <section id="order" class="section" aria-labelledby="orderTitle">
+        <h2 id="orderTitle">Ваш заказ</h2>
+        <p class="muted" id="emptyCart">Пока пусто. Добавьте что-нибудь вкусное из каталога.</p>
+        <div id="cartBox" hidden>
+          <ul class="cart" id="cartList"></ul>
+          <p class="total">Итого: <strong id="totalSum">0 ₽</strong></p>
+
+          <form id="orderForm" class="form" novalidate>
+            <label>Ваше имя
+              <input name="name" autocomplete="name" required />
+            </label>
+            <label>Телефон
+              <input name="phone" type="tel" autocomplete="tel" required />
+            </label>
+            <label>Комментарий (пожелания, надпись, время, аллергии)
+              <textarea name="comment" rows="3"></textarea>
+            </label>
+            <p class="form__error" id="formError" role="alert" hidden></p>
+            <button class="btn btn--primary" type="submit">Скопировать заказ и открыть чат ВК</button>
+          </form>
+
+          <p class="call-note" id="callOrderBox">Проще по телефону или остались вопросы?
+            <a class="btn btn--call" id="callOrder" href="#" hidden>📞 Позвонить</a>
+          </p>
+
+          <div class="result" id="result" hidden>
+            <p><strong>Заказ скопирован.</strong> В открывшемся чате нажмите «Вставить» (Ctrl+V или долгое нажатие) и «Отправить».</p>
+            <label>Текст заказа
+              <textarea id="orderText" rows="8" readonly></textarea>
+            </label>
+            <a class="btn btn--ghost" id="openChat" href="#" target="_blank" rel="noopener">Открыть чат ВКонтакте</a>
+            <p class="muted">Чат не открылся или неудобно писать? Позвоните нам.</p>
+            <a class="btn btn--call" id="callResult" href="#" hidden>📞 Позвонить</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tint" aria-labelledby="howTitle">
+        <h2 id="howTitle">Как заказать</h2>
+        <ol class="steps">
+          <li><span>1</span> Выберите сладости в каталоге и укажите количество.</li>
+          <li><span>2</span> Оставьте имя и телефон, нажмите «Скопировать заказ и открыть чат ВК».</li>
+          <li><span>3</span> В открывшемся чате нажмите «Вставить» и «Отправить».</li>
+          <li><span>4</span> Мы подтвердим заказ и договоримся о деталях.</li>
+        </ol>
+        <p class="note" id="orderDateNote"></p>
+        <p class="muted">Оплата на сайте не производится. Вопросы про доставку, самовывоз, состав и вес задавайте до заказа: позвоните или напишите нам.</p>
+      </section>
+
+      <section id="reviews" class="section" aria-labelledby="reviewsTitle" hidden>
+        <h2 id="reviewsTitle">Отзывы</h2>
+        <ul class="reviews" id="reviewsList"></ul>
+      </section>
+
+      <section class="section section--tint" aria-labelledby="aboutTitle">
+        <h2 id="aboutTitle">О нас</h2>
+        <div class="about">
+          <img class="about__photo" src="images/owner-portrait.jpg" alt="Антонина Логутенкова, кондитер" />
+          <div class="about__text">
+            <p class="about__name">Антонина Логутенкова</p>
+            <p>Здравствуйте! Меня зовут Антонина, и вот уже 5 лет десерты - моё настоящее увлечение, которое переросло в мастерство.</p>
+            <p>Раньше я совсем не занималась выпечкой. Но после первого же мастер-класса испекла меренговый рулет, и всё получилось! Знакомая попробовала кусочек и сразу захотела его купить. Тогда я поняла: невозможного нет, было бы желание.</p>
+            <p>С тех пор я освоила и классику, и ПП-версии: от нежного бисквита до капризной меренги, от муссовых тортов с зеркальной глазурью до модных бенто-тортов «на один укус». Готовлю с любовью для каждого клиента, только из натуральных и свежих ингредиентов.</p>
+            <p>Я живу в Полярных Зорях. Заказать десерт можно по телефону или в сообщениях ВКонтакте.</p>
+          </div>
+        </div>
+        <p class="actions"><a class="btn btn--ghost" id="vkGroupAbout" href="#" target="_blank" rel="noopener">Посмотреть наше сообщество ВКонтакте</a></p>
+      </section>
+
+      <section class="section" aria-labelledby="contactsTitle">
+        <h2 id="contactsTitle">Контакты</h2>
+        <p>Самый быстрый способ связаться - позвонить или написать нам во ВКонтакте.</p>
+        <p class="actions">
+          <a class="btn btn--call" id="callContacts" href="#" hidden>📞 Позвонить</a>
+          <a class="btn btn--primary" id="vkWrite" href="#" target="_blank" rel="noopener">Написать во ВКонтакте</a>
+          <a class="btn btn--ghost" id="vkGroup" href="#" target="_blank" rel="noopener">Наше сообщество</a>
+        </p>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© <span id="year"></span> Сладости для радости</p>
+    </footer>
+
+    <div class="dock" id="dock" aria-live="polite">
+      <span class="dock__sum" id="dockSum">Заказ: 0 ₽</span>
+      <a class="btn btn--primary" href="#order">Оформить</a>
+      <a class="btn btn--call" id="callDock" href="#" hidden>📞</a>
+    </div>
+
+    <a class="btn btn--primary call-fab" id="callFab" href="#" aria-label="Позвонить" hidden>📞</a>
+
+    <dialog class="lightbox" id="lightbox" aria-label="Просмотр фото">
+      <div class="lightbox__box">
+        <button class="lightbox__close" id="lightboxClose" type="button" aria-label="Закрыть">×</button>
+        <img id="lightboxImg" alt="" />
+        <p class="lightbox__cap" id="lightboxCap"></p>
+      </div>
+    </dialog>
+
+    <script src="catalog-final.js"></script>
+    <script src="script.js"></script>
+    <script src="script-live.js"></script>
+    <script src="content-v4.js"></script>
+    <script src="script-extras.js"></script>
+    <script src="script-v2.js"></script>
+    <script src="script-certs.js"></script>
+  </body>
+</html>
