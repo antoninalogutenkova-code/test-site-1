@@ -1,0 +1,14 @@
+/* Версия 16: в галерее "Наши работы" стало больше фото (8), в один ряд все не помещаются
+   без сжатия. Возвращаем сетку (как в style-v13.css): карточки одинакового размера,
+   сами ровно распределяются по рядам, без пустого места справа. */
+@media (min-width: 700px) {
+  #galleryList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+  }
+  #galleryList > li {
+    flex: initial;
+    min-width: 0;
+  }
+}
