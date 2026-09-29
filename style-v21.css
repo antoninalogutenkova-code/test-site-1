@@ -1,0 +1,78 @@
+/* Версия 21: согласие на обработку персональных данных, аллергены на карточках,
+   статус продавца в подвале, пометки "заполнить/проверить". */
+
+.placeholder-fill {
+  background: #fff3b0;
+  color: var(--ink);
+  padding: 1px 6px;
+  border-radius: 4px;
+  border: 1px dashed var(--berry-dark);
+  font-weight: 600;
+}
+
+.footer__legal {
+  font-size: 14px;
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+.card__allergens {
+  font-size: 14px;
+  color: var(--muted);
+  margin: -4px 0 10px;
+}
+
+.card__allergens--review {
+  background: #fff3b0;
+  color: var(--ink);
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px dashed var(--berry-dark);
+  display: inline-block;
+}
+
+.consent {
+  margin: 4px 0 14px;
+}
+
+.consent__checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.consent__checkbox input {
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+.consent__policy-toggle {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: var(--berry-dark);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.consent__policy {
+  margin-top: 8px;
+  padding: 12px 14px;
+  background: var(--pistachio);
+  border-radius: 10px;
+  font-size: 14px;
+  color: var(--ink);
+}
+
+.consent__policy p {
+  margin: 0;
+}
+
+.btn--primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
