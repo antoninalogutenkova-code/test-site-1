@@ -1,0 +1,30 @@
+/* Версия 20: мягкая живая заглушка вместо чужого фото на карточке каталога. */
+.card__pic--placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  aspect-ratio: 4 / 5;
+  background: linear-gradient(135deg, var(--berry-soft) 0%, var(--pistachio) 100%);
+  background-size: 220% 220%;
+  animation: placeholder-glow 7s ease-in-out infinite;
+}
+.card__placeholder-note {
+  font-family: var(--font-head);
+  font-size: 15px;
+  color: var(--berry-dark);
+  opacity: 0.85;
+}
+.card__placeholder-note::before {
+  content: "✨ ";
+}
+
+@keyframes placeholder-glow {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card__pic--placeholder { animation: none; }
+}

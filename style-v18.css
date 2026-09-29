@@ -1,0 +1,108 @@
+/* Версия 18: пометка "фото для примера", мягкая заметка в форме заказа,
+   подпись-автограф в подвале и капля глазури при оформлении заказа. */
+
+/* Пометка на фото каталога, которое не является настоящей работой Антонины */
+.card__pic { position: relative; }
+.card__photo-note {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(42, 22, 32, 0.72);
+  color: #fff;
+  font-size: 12px;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+}
+
+/* Мягкая ненавязчивая заметка под формой заказа */
+.form__note {
+  margin: 10px 0 0;
+  font-size: 13px;
+  color: var(--muted);
+  opacity: 0.85;
+}
+
+/* Подпись-автограф в подвале сайта */
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.footer__signature {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.75;
+}
+.footer__signature img {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.footer__signature span {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* Капля глазури - анимация подтверждения заказа */
+.icing-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 60;
+  overflow: hidden;
+  transition: opacity 0.5s ease;
+}
+.icing-layer.is-fading { opacity: 0; }
+
+.icing-drip {
+  position: absolute;
+  top: 0;
+  width: 0;
+}
+.icing-drip__tail {
+  position: absolute;
+  top: 0;
+  left: -5px;
+  width: 10px;
+  height: var(--h);
+  border-radius: 0 0 6px 6px;
+  background: linear-gradient(180deg, var(--berry) 0%, var(--berry-dark) 100%);
+  transform: scaleY(0);
+  transform-origin: top center;
+  animation: icing-fall 0.55s cubic-bezier(0.36, 0.66, 0.4, 1) forwards;
+  animation-delay: var(--fall-delay);
+  box-shadow: inset -2px 0 3px rgba(255,255,255,0.25);
+}
+.icing-drip__blob {
+  position: absolute;
+  top: var(--h);
+  left: -11px;
+  width: 22px;
+  height: 22px;
+  border-radius: 55% 55% 60% 60% / 65% 65% 55% 55%;
+  background: radial-gradient(circle at 35% 30%, #f6dfe6 0%, var(--berry) 55%, var(--berry-dark) 100%);
+  opacity: 0;
+  transform: scale(0.3);
+  animation: icing-land 0.4s ease-out forwards;
+  animation-delay: calc(var(--fall-delay) + 0.5s);
+}
+
+@keyframes icing-fall {
+  0% { transform: scaleY(0); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: scaleY(1); opacity: 1; }
+}
+@keyframes icing-land {
+  0% { opacity: 0; transform: scale(0.3); }
+  55% { opacity: 1; transform: scale(1.25) translateY(-2px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .icing-drip__tail, .icing-drip__blob { animation: none; opacity: 0; }
+}
