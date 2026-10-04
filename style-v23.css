@@ -1,0 +1,7 @@
+.footer__signature {
+  gap: 12px;
+}
+.footer__signature img {
+  width: 44px;
+  height: 44px;
+}
