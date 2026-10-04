@@ -1,0 +1,11 @@
+.hero__tag {
+  display: inline-block;
+  margin: 6px 0 0;
+  padding: 3px 12px;
+  border-radius: 999px;
+  background: var(--berry-soft);
+  color: var(--berry-dark);
+  font-family: 'Onest', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
