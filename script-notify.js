@@ -1,7 +1,7 @@
 // Тихо отправляет заказ на сервер, чтобы он пришёл владельцу в МАКС и на почту.
 // Если сервер не ответил, ничего не ломается: заказ всё равно уходит через чат ВК.
 (() => {
-  const ENDPOINT = "https://test-site-1-steel.vercel.app/api/order";
+  const ENDPOINT = "https://test-site-1-ch58.vercel.app/api/order";
 
   document.addEventListener("sweet:order-confirmed", () => {
     const form = document.getElementById("orderForm");

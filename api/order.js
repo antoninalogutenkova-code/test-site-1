@@ -12,6 +12,7 @@ const ALLOWED_ORIGINS = [
   "https://sweet7.tilda.ws",
   "https://ant-site.github.io",
   "https://test-site-1-steel.vercel.app",
+  "https://test-site-1-ch58.vercel.app",
 ];
 
 function cors(req, res) {
