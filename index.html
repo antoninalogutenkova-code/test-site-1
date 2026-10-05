@@ -74,7 +74,7 @@
           <p class="total">Итого: <strong id="totalSum">0 ₽</strong></p>
 
           <form id="orderForm" class="form" novalidate>
-            <input name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
+            <input name="hp_field" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
             <label>Ваше имя
               <input name="name" autocomplete="name" required />
             </label>
@@ -96,7 +96,7 @@
             </div>
 
             <p class="form__error" id="formError" role="alert" hidden></p>
-            <button class="btn btn--primary" type="submit" id="orderSubmitBtn" disabled>Скопировать заказ и открыть чат ВК</button>
+            <button class="btn btn--primary" type="submit" id="orderSubmitBtn" disabled>Отправить заказ</button>
             <p class="form__note">Отвечу и подтвержу заказ, как только смогу.</p>
           </form>
 
@@ -105,12 +105,15 @@
           </p>
 
           <div class="result" id="result" hidden>
-            <p><strong>Заказ скопирован.</strong> В открывшемся чате нажмите «Вставить» (Ctrl+V или долгое нажатие) и «Отправить».</p>
-            <label>Текст заказа
-              <textarea id="orderText" rows="8" readonly></textarea>
-            </label>
-            <a class="btn btn--ghost" id="openChat" href="#" target="_blank" rel="noopener">Открыть чат ВКонтакте</a>
-            <p class="muted">Чат не открылся или неудобно писать? Позвоните нам.</p>
+            <p id="resultOk"><strong>Заказ отправлен.</strong> Мы свяжемся с вами по указанному телефону и подтвердим детали.</p>
+            <div id="resultFallback" hidden>
+              <p><strong>Заказ не удалось отправить автоматически, но он скопирован.</strong> В открывшемся чате нажмите «Вставить» (Ctrl+V или долгое нажатие) и «Отправить».</p>
+              <label>Текст заказа
+                <textarea id="orderText" rows="8" readonly></textarea>
+              </label>
+            </div>
+            <a class="btn btn--ghost" id="openChat" href="#" target="_blank" rel="noopener">Написать во ВКонтакте</a>
+            <p class="muted">Остались вопросы? Позвоните нам.</p>
             <a class="btn btn--call" id="callResult" href="#" hidden>📞 Позвонить</a>
           </div>
         </div>
@@ -121,9 +124,8 @@
         <h2 id="howTitle">Как заказать</h2>
         <ol class="steps">
           <li><span>1</span> Выберите сладости в каталоге и укажите количество.</li>
-          <li><span>2</span> Оставьте имя и телефон, нажмите «Скопировать заказ и открыть чат ВК».</li>
-          <li><span>3</span> В открывшемся чате нажмите «Вставить» и «Отправить».</li>
-          <li><span>4</span> Мы подтвердим заказ и договоримся о деталях.</li>
+          <li><span>2</span> Оставьте имя и телефон, нажмите «Отправить заказ».</li>
+          <li><span>3</span> Мы получим заказ, подтвердим его и договоримся о деталях.</li>
         </ol>
         <p class="muted">Оплата на сайте не производится. Вопросы про доставку, самовывоз, состав и вес задавайте до заказа: позвоните или напишите нам.</p>
       </section>
@@ -194,7 +196,7 @@
     </dialog>
 
     <script src="catalog-v13.js"></script>
-    <script src="script-v8.js"></script>
+    <script src="script-v9.js"></script>
     <script src="content-v8.js"></script>
     <script src="script-extras-v2.js"></script>
     <script src="script-v3.js"></script>
@@ -202,6 +204,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="script-ring2.js"></script>
     <script src="script-v5-live.js"></script>
-    <script src="script-notify.js"></script>
   </body>
 </html>
